@@ -13,7 +13,7 @@ public interface PhoneRepository extends JpaRepository<PhoneModel, Long> {
 
     PhoneModel save(PhoneModel phoneModel);
 
-    PhoneModel findbyId(Long id);
+    PhoneModel findPhoneModelById(Long id);
 
     void deleteById(Long id);
 

@@ -11,20 +11,27 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class PhoneService {
-    PhoneRepository phoneRepository;
+    private final PhoneRepository phoneRepository;
 
     public List<PhoneModel> getAllPhones(){
         return phoneRepository.findAll();
     }
     public PhoneModel getPhoneById(Long id){
-        return phoneRepository.findbyId(id);
+        return phoneRepository.findPhoneModelById(id);
     }
-    public PhoneModel createNewPhone(){
-        return phoneRepository.save(new PhoneModel());
+    public PhoneModel createNewPhone(PhoneModel phoneModel){
+        return phoneRepository.save(phoneModel);
     }
     public PhoneModel updatePhone(Long id, PhoneModel updatedPhone){
-        PhoneModel existingPhone = phoneRepository.findbyId(id);
+        PhoneModel existingPhone = phoneRepository.findPhoneModelById(id);
         if(existingPhone != null){
+            existingPhone.setYearOfRelease(updatedPhone.getYearOfRelease());
+            existingPhone.setCompanyName(updatedPhone.getCompanyName());
+            existingPhone.setModelName(updatedPhone.getModelName());
+            existingPhone.setResolution(updatedPhone.getResolution());
+            existingPhone.setMemory(updatedPhone.getMemory());
+            existingPhone.setProcessor(updatedPhone.getProcessor());
+
             return phoneRepository.save(existingPhone);
         }else {
             //TODO сделать обработку случая, когда такого ID нет
@@ -32,7 +39,7 @@ public class PhoneService {
         }
     }
     public void deletePhone(Long id){
-        PhoneModel existingPhone = phoneRepository.findbyId(id);
+        PhoneModel existingPhone = phoneRepository.findPhoneModelById(id);
         if(existingPhone != null){
             phoneRepository.delete(existingPhone);
         }else {
