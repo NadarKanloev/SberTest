@@ -9,5 +9,15 @@ import java.util.List;
 
 @Repository
 public interface PhoneRepository extends JpaRepository<PhoneModel, Long> {
-    List<PhoneModel> getAllBy();
+    List<PhoneModel> findAll();
+
+    PhoneModel save(PhoneModel phoneModel);
+
+    PhoneModel findbyId(Long id);
+
+    void deleteById(Long id);
+
+    void delete(PhoneModel phoneModel);
+
+
 }
