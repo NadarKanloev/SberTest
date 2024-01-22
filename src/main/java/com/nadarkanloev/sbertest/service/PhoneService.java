@@ -43,6 +43,7 @@ public class PhoneService {
         PhoneModel existingPhone = phoneRepository.findPhoneModelById(id);
         if(existingPhone != null){
             log.info("Извлечен " + existingPhone.getCompanyName() + " " + existingPhone.getModelName());
+            System.out.println(existingPhone.toString());
             return existingPhone;
         }else {
             throw new EntityNotFoundException("Телефон с ID " + id + "Не найден");

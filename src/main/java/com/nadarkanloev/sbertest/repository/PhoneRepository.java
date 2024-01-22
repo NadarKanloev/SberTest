@@ -49,6 +49,4 @@ public interface PhoneRepository extends JpaRepository<PhoneModel, Long> {
      * @param phoneModel Телефон для удаления
      */
     void delete(PhoneModel phoneModel);
-
-
 }

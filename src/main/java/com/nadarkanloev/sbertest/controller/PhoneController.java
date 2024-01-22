@@ -24,7 +24,7 @@ public class PhoneController {
     /**
      * <p>Получение списка всех телефонов</p>
      * <p>Пример запроса : </p>
-     * <pre>{@code GET http://localhost:8080/api/phones}</pre>
+     * <pre>{@code GET http://localhost:8080/api}</pre>
      * @return Список объектов {@link PhoneModel}
      */
     @GetMapping
@@ -49,7 +49,7 @@ public class PhoneController {
      * Пример запроса:
      * <pre>
      * {@code
-     * POST http://localhost:8080/api/phones
+     * POST http://localhost:8080/api
      * Body:
      * {
      *   "yearOfRelease": 2022,
@@ -73,7 +73,7 @@ public class PhoneController {
     /**
      * <p>Обновление информации о телефоне по его id</p>
      * <p>Пример запроса:</p>
-     * <pre>{@code PUT http://localhost:8080/api/phones/1
+     * <pre>{@code PUT http://localhost:8080/api/1
      * {
      *   "yearOfRelease": 2023,
      *   "companyName": "Samsung",
@@ -94,7 +94,7 @@ public class PhoneController {
     /**
      * Удаление записи о телефоне по его id
      * <p>Пример запроса :</p>
-     * <pre>{@code DELETE http://localhost:8080/api/phones/1}</pre>
+     * <pre>{@code DELETE http://localhost:8080/api/1}</pre>
      * @param id Идентификатор телефона, который требуется удалить
      */
     @DeleteMapping("/{id}")
